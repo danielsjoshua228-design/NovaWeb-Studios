@@ -1,0 +1,454 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="theme-color" content="#11100e">
+  <meta name="description" content="ÉLORA BOUTIQUE — timeless fashion, beautiful details and effortless elegance. Discover clothing, handbags, shoes and accessories.">
+  <title>ÉLORA BOUTIQUE | Style. Elegance. Confidence.</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Playfair+Display:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --ink:#11100e; --ink-soft:#1d1a16; --cream:#f7f2e9; --paper:#fffdf8;
+      --gold:#c7a56a; --gold-light:#dfc99f; --muted:#827b70; --line:#e9e1d4;
+      --serif:"Playfair Display",Georgia,serif; --sans:"DM Sans",Arial,sans-serif;
+      --shadow:0 18px 55px rgba(25,20,13,.12);
+    }
+    *{box-sizing:border-box}
+    html{scroll-behavior:smooth;scroll-padding-top:90px}
+    body{margin:0;background:var(--paper);color:var(--ink);font-family:var(--sans);line-height:1.6}
+    body.no-scroll{overflow:hidden}
+    button,input{font:inherit}
+    button,a{-webkit-tap-highlight-color:transparent}
+    a{color:inherit;text-decoration:none}
+    button{cursor:pointer}
+    img{display:block;max-width:100%}
+    .announcement{background:var(--gold);color:#17130d;text-align:center;padding:8px 14px;font-size:10px;letter-spacing:2px;text-transform:uppercase;font-weight:700}
+    .header{position:sticky;top:0;z-index:30;background:rgba(17,16,14,.97);color:#fff;border-bottom:1px solid rgba(255,255,255,.08);backdrop-filter:blur(12px)}
+    .nav-wrap{max-width:1240px;margin:auto;padding:0 5%;height:78px;display:flex;align-items:center;justify-content:space-between;gap:24px}
+    .brand{font-family:var(--serif);font-size:27px;letter-spacing:4px;line-height:1;color:var(--gold-light);white-space:nowrap}
+    .brand small{display:block;font-family:var(--sans);font-size:8px;letter-spacing:4px;text-align:center;margin-top:7px;color:#d9d1c4}
+    .nav-links{display:flex;align-items:center;gap:30px}
+    .nav-links a{font-size:10px;letter-spacing:1.7px;text-transform:uppercase;color:#e8e2d8;transition:.25s}
+    .nav-links a:hover{color:var(--gold-light)}
+    .nav-actions{display:flex;align-items:center;gap:17px}
+    .icon-btn{border:0;background:none;color:#fff;padding:8px;position:relative;font-size:19px}
+    .cart-count{position:absolute;top:0;right:0;background:var(--gold);color:#17130d;width:16px;height:16px;border-radius:50%;font-size:9px;font-weight:700;display:grid;place-items:center}
+    .menu-btn{display:none}
+    .hero{min-height:650px;background:linear-gradient(90deg,rgba(12,11,10,.82) 0%,rgba(12,11,10,.47) 48%,rgba(12,11,10,.08) 100%),url('https://images.unsplash.com/photo-153910광?auto=format&fit=crop&w=2000&q=85');background-image:linear-gradient(90deg,rgba(12,11,10,.84) 0%,rgba(12,11,10,.52) 48%,rgba(12,11,10,.08) 100%),url('https://images.unsplash.com/photo-1539109136881-3be0616acf4b?auto=format&fit=crop&w=2000&q=85');background-size:cover;background-position:center 35%;display:flex;align-items:center;color:#fff}
+    .hero-inner{width:min(1240px,90%);margin:auto;padding:90px 0}
+    .eyebrow{font-size:10px;letter-spacing:4px;text-transform:uppercase;color:var(--gold-light);font-weight:700}
+    .hero h1{font-family:var(--serif);font-weight:400;font-size:clamp(48px,7vw,88px);line-height:1.08;max-width:680px;margin:22px 0}
+    .hero h1 em{color:var(--gold-light);font-weight:400}
+    .hero p{max-width:440px;color:#e5dfd6;font-size:14px;line-height:1.9;margin-bottom:32px}
+    .btn{display:inline-flex;align-items:center;justify-content:center;gap:12px;padding:15px 25px;border:1px solid var(--gold);background:var(--gold);color:#17130d;font-size:10px;letter-spacing:1.8px;text-transform:uppercase;font-weight:700;transition:.25s}
+    .btn:hover{background:transparent;color:var(--gold-light);transform:translateY(-2px)}
+    .btn-outline{background:transparent;color:var(--gold-light)}
+    .btn-outline:hover{background:var(--gold);color:#17130d}
+    .section{padding:92px 5%}
+    .container{max-width:1240px;margin:auto}
+    .section-head{text-align:center;max-width:650px;margin:0 auto 42px}
+    .section-head .eyebrow{color:#a17d43}
+    .section-head h2{font:500 clamp(32px,4vw,48px)/1.2 var(--serif);margin:12px 0}
+    .section-head p{color:var(--muted);font-size:13px;margin:0}
+    .categories{display:grid;grid-template-columns:repeat(5,1fr);gap:16px}
+    .category-card{position:relative;height:330px;overflow:hidden;background:#ddd;display:block}
+    .category-card img{width:100%;height:100%;object-fit:cover;transition:transform .7s}
+    .category-card:hover img{transform:scale(1.07)}
+    .category-card:after{content:"";position:absolute;inset:35% 0 0;background:linear-gradient(transparent,rgba(0,0,0,.72))}
+    .category-info{position:absolute;z-index:1;bottom:23px;left:22px;color:#fff}
+    .category-info span{display:block;font-size:9px;letter-spacing:2px;text-transform:uppercase;color:var(--gold-light)}
+    .category-info strong{font:500 24px var(--serif)}
+    .shop-section{background:var(--cream)}
+    .shop-toolbar{display:flex;justify-content:space-between;align-items:center;gap:18px;flex-wrap:wrap;margin-bottom:28px}
+    .filters{display:flex;gap:8px;flex-wrap:wrap}
+    .filter-btn{border:1px solid #d9d0c1;background:transparent;padding:10px 15px;font-size:9px;letter-spacing:1.2px;text-transform:uppercase;color:#554e43;transition:.2s}
+    .filter-btn.active,.filter-btn:hover{background:var(--ink);border-color:var(--ink);color:var(--gold-light)}
+    .search-box{display:flex;align-items:center;border-bottom:1px solid #bfb5a5;min-width:210px}
+    .search-box input{width:100%;border:0;background:transparent;padding:10px 4px;outline:none;font-size:12px;color:var(--ink)}
+    .search-box span{color:#81796d}
+    .product-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:28px 18px}
+    .product-card{min-width:0}
+    .product-image{position:relative;aspect-ratio:3/4;overflow:hidden;background:#e7e0d5}
+    .product-image img{width:100%;height:100%;object-fit:cover;transition:transform .6s}
+    .product-card:hover .product-image img{transform:scale(1.045)}
+    .product-tag{position:absolute;top:12px;left:12px;background:var(--paper);padding:6px 9px;font-size:8px;letter-spacing:1.2px;text-transform:uppercase}
+    .quick-add{position:absolute;bottom:12px;left:12px;right:12px;border:0;background:rgba(17,16,14,.92);color:#fff;padding:12px;font-size:9px;letter-spacing:1.5px;text-transform:uppercase;opacity:0;transform:translateY(8px);transition:.25s}
+    .product-card:hover .quick-add,.quick-add:focus{opacity:1;transform:translateY(0)}
+    .product-meta{padding:13px 2px}
+    .product-meta h3{font:500 17px var(--serif);margin:0 0 4px}
+    .product-meta p{font-size:10px;color:var(--muted);margin:0 0 8px}
+    .price{font-size:12px;font-weight:700;letter-spacing:.4px}
+    .empty-state{grid-column:1/-1;text-align:center;padding:55px 10px;color:var(--muted)}
+    .story{display:grid;grid-template-columns:1fr 1fr;gap:70px;align-items:center}
+    .story-image{height:550px;overflow:hidden}
+    .story-image img{width:100%;height:100%;object-fit:cover}
+    .story-copy .eyebrow{color:#a17d43}
+    .story-copy h2{font:500 clamp(35px,4vw,51px)/1.2 var(--serif);margin:16px 0 22px}
+    .story-copy p{font-size:13px;color:var(--muted);line-height:2;margin-bottom:18px}
+    .story-signature{font:italic 24px var(--serif);color:#a17d43;margin:25px 0}
+    .benefits{background:var(--ink);color:#fff;padding:50px 5%}
+    .benefit-grid{max-width:1240px;margin:auto;display:grid;grid-template-columns:repeat(3,1fr);gap:25px;text-align:center}
+    .benefit-icon{font-size:24px;color:var(--gold);margin-bottom:12px}
+    .benefit-grid h3{font:500 19px var(--serif);margin:0 0 7px}
+    .benefit-grid p{font-size:11px;color:#bdb5a9;margin:0}
+    .testimonials{background:#fff}
+    .review-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}
+    .review{padding:28px;background:var(--cream);border:1px solid var(--line)}
+    .stars{color:#b38b4c;letter-spacing:3px;font-size:12px}
+    .review blockquote{font:italic 17px/1.7 var(--serif);margin:16px 0}
+    .review strong{font-size:10px;letter-spacing:1px;text-transform:uppercase}
+    .review small{display:block;color:var(--muted);font-size:9px;margin-top:3px}
+    .newsletter{background:var(--gold);padding:62px 5%;text-align:center}
+    .newsletter h2{font:500 36px var(--serif);margin:0 0 8px}
+    .newsletter p{font-size:12px;margin:0 0 22px;color:#3d3020}
+    .newsletter-form{display:flex;max-width:450px;margin:auto}
+    .newsletter-form input{flex:1;min-width:0;border:1px solid #8f7040;background:rgba(255,255,255,.65);padding:14px;font-size:11px;outline:none}
+    .newsletter-form button{border:1px solid var(--ink);background:var(--ink);color:#fff;padding:0 19px;font-size:9px;letter-spacing:1px;text-transform:uppercase}
+    .footer{background:#11100e;color:#fff;padding:65px 5% 22px}
+    .footer-grid{max-width:1240px;margin:auto;display:grid;grid-template-columns:1.5fr 1fr 1fr 1.2fr;gap:35px;padding-bottom:45px}
+    .footer .brand{display:inline-block;margin-bottom:18px}
+    .footer p{font-size:11px;color:#aaa196;line-height:1.9;max-width:280px}
+    .footer h4{font-size:10px;letter-spacing:2px;text-transform:uppercase;color:var(--gold-light);margin:4px 0 18px}
+    .footer-links{display:grid;gap:11px}
+    .footer-links a,.footer-links span{font-size:11px;color:#c7c0b5}
+    .footer-links a:hover{color:var(--gold-light)}
+    .footer-bottom{max-width:1240px;margin:auto;border-top:1px solid #302c26;padding-top:18px;display:flex;justify-content:space-between;gap:15px;flex-wrap:wrap;color:#8d8579;font-size:9px;letter-spacing:.5px}
+    .footer-bottom b{color:var(--gold-light);font-weight:500}
+    .overlay{position:fixed;inset:0;background:rgba(0,0,0,.56);z-index:49;opacity:0;visibility:hidden;transition:.25s}
+    .overlay.show{opacity:1;visibility:visible}
+    .cart-panel{position:fixed;z-index:50;right:0;top:0;height:100%;width:min(430px,100%);background:var(--paper);transform:translateX(105%);transition:transform .35s;display:flex;flex-direction:column}
+    .cart-panel.open{transform:translateX(0)}
+    .cart-head{padding:23px 25px;border-bottom:1px solid var(--line);display:flex;justify-content:space-between;align-items:center}
+    .cart-head h2{font:500 25px var(--serif);margin:0}
+    .close-btn{border:0;background:none;font-size:24px;color:var(--ink)}
+    .cart-items{padding:20px 25px;overflow:auto;flex:1}
+    .cart-empty{text-align:center;padding:65px 10px;color:var(--muted);font-size:13px}
+    .cart-item{display:grid;grid-template-columns:75px 1fr auto;gap:13px;padding:13px 0;border-bottom:1px solid var(--line)}
+    .cart-item img{width:75px;height:90px;object-fit:cover}
+    .cart-item h4{font:500 15px var(--serif);margin:2px 0 4px}
+    .cart-item p{font-size:10px;color:var(--muted);margin:0 0 9px}
+    .qty{display:flex;align-items:center;gap:10px}
+    .qty button{width:23px;height:23px;border:1px solid var(--line);background:#fff}
+    .qty span{font-size:11px}
+    .remove{border:0;background:none;color:#8e8272;font-size:17px;align-self:start}
+    .cart-foot{padding:20px 25px;border-top:1px solid var(--line)}
+    .subtotal{display:flex;justify-content:space-between;font-size:13px;font-weight:700;margin-bottom:14px}
+    .cart-foot .btn{width:100%}
+    .cart-note{font-size:9px;color:var(--muted);text-align:center;margin:10px 0 0}
+    .modal{position:fixed;z-index:60;inset:0;display:grid;place-items:center;padding:18px;background:rgba(0,0,0,.65);opacity:0;visibility:hidden;transition:.25s}
+    .modal.show{opacity:1;visibility:visible}
+    .modal-box{background:var(--paper);width:min(760px,100%);max-height:90vh;overflow:auto;position:relative;display:grid;grid-template-columns:1fr 1fr}
+    .modal-box>img{width:100%;height:100%;min-height:430px;object-fit:cover}
+    .modal-content{padding:45px 32px;align-self:center}
+    .modal-content h2{font:500 31px var(--serif);margin:10px 0}
+    .modal-content p{font-size:12px;color:var(--muted);line-height:1.9}
+    .modal-content .price{display:block;margin:18px 0 24px}
+    .modal-close{position:absolute;top:12px;right:14px;border:0;background:#fff;width:34px;height:34px;border-radius:50%;font-size:20px;z-index:2}
+    .toast{position:fixed;z-index:80;bottom:22px;left:50%;transform:translate(-50%,20px);background:var(--ink);color:#fff;padding:12px 20px;font-size:11px;letter-spacing:.4px;opacity:0;pointer-events:none;transition:.25s;box-shadow:var(--shadow)}
+    .toast.show{opacity:1;transform:translate(-50%,0)}
+    .whatsapp-float{position:fixed;right:22px;bottom:22px;z-index:25;background:#218c54;color:#fff;width:53px;height:53px;border-radius:50%;display:grid;place-items:center;font-size:23px;box-shadow:0 8px 25px #0003}
+    .whatsapp-float:hover{transform:translateY(-3px)}
+    @media(max-width:900px){.nav-links{gap:16px}.nav-links a{font-size:9px}.categories{grid-template-columns:repeat(2,1fr)}.product-grid{grid-template-columns:repeat(3,1fr)}.story{gap:35px}.footer-grid{grid-template-columns:repeat(2,1fr)}}
+    @media(max-width:650px){
+      .announcement{font-size:8px;letter-spacing:1.2px}.nav-wrap{height:68px;padding:0 5%}.brand{font-size:22px;letter-spacing:3px}.brand small{font-size:7px}.menu-btn{display:block}.nav-links{display:none;position:absolute;top:68px;left:0;right:0;background:#171512;padding:22px 6%;flex-direction:column;align-items:flex-start;gap:20px;border-top:1px solid #39342b}.nav-links.open{display:flex}.nav-actions{gap:8px}.hero{min-height:580px;background-position:58% center}.hero-inner{padding:75px 0}.hero h1{font-size:52px}.hero p{font-size:12px;max-width:330px}.section{padding:68px 5%}.section-head{margin-bottom:30px}.categories{gap:10px}.category-card{height:245px}.category-info{left:14px;bottom:15px}.category-info strong{font-size:22px}.product-grid{grid-template-columns:repeat(2,1fr);gap:22px 12px}.product-meta h3{font-size:15px}.quick-add{opacity:1;transform:none;font-size:8px;padding:10px}.shop-toolbar{align-items:stretch}.filters{overflow:auto;flex-wrap:nowrap;padding-bottom:5px}.filter-btn{white-space:nowrap}.search-box{width:100%}.story{grid-template-columns:1fr;gap:28px}.story-image{height:390px}.benefit-grid{grid-template-columns:1fr;gap:32px}.review-grid{grid-template-columns:1fr}.newsletter h2{font-size:30px}.newsletter-form button{padding:0 12px}.footer-grid{grid-template-columns:1fr 1fr;gap:30px 20px}.footer-grid>div:first-child{grid-column:1/-1}.footer-bottom{font-size:8px}.modal-box{grid-template-columns:1fr;max-width:420px}.modal-box>img{height:270px;min-height:0}.modal-content{padding:25px}.modal-content h2{font-size:25px}.whatsapp-float{right:15px;bottom:15px;width:48px;height:48px}
+    }
+    @media(max-width:380px){.product-grid{gap:18px 9px}.category-card{height:210px}.hero h1{font-size:44px}.footer-grid{grid-template-columns:1fr}.footer-grid>div:first-child{grid-column:auto}}
+  </style>
+</head>
+<body>
+  <div class="announcement">Complimentary delivery on selected orders · A little luxury, every day</div>
+  <header class="header">
+    <div class="nav-wrap">
+      <button class="icon-btn menu-btn" id="menuBtn" aria-label="Open menu">☰</button>
+      <a class="brand" href="#home">ÉLORA<small>BOUTIQUE</small></a>
+      <nav class="nav-links" id="navLinks">
+        <a href="#home">Home</a><a href="#collections">Collections</a><a href="#shop">Shop</a><a href="#about">Our story</a><a href="#contact">Contact</a>
+      </nav>
+      <div class="nav-actions">
+        <a class="icon-btn" href="#shop" aria-label="Search products">⌕</a>
+        <button class="icon-btn" id="cartOpen" aria-label="Open shopping bag">♧<span class="cart-count" id="cartCount">0</span></button>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    <section class="hero" id="home">
+      <div class="hero-inner">
+        <div class="eyebrow">The ÉLORA edit · New season</div>
+        <h1>Elegance is<br>always <em>in style.</em></h1>
+        <p>Discover thoughtfully selected fashion pieces made for the moments that matter. Your style story begins here.</p>
+        <a class="btn" href="#shop">Explore the collection <span>→</span></a>
+      </div>
+    </section>
+
+    <section class="section" id="collections">
+      <div class="container">
+        <div class="section-head"><div class="eyebrow">Curated for you</div><h2>Shop by collection</h2><p>Find the pieces that express your personality, elevate your everyday and make every entrance memorable.</p></div>
+        <div class="categories">
+          <a class="category-card" href="#shop" data-category-link="Clothing"><img src="https://images.unsplash.com/photo-1483985988355-763728e1935b?auto=format&fit=crop&w=800&q=85" alt="Women's fashion clothing"><div class="category-info"><span>Discover the edit</span><strong>Clothing</strong></div></a>
+          <a class="category-card" href="#shop" data-category-link="Handbags"><img src="https://images.unsplash.com/photo-1584917865442-de89df76afd3?auto=format&fit=crop&w=800&q=85" alt="Elegant handbags"><div class="category-info"><span>Carry it beautifully</span><strong>Handbags</strong></div></a>
+          <a class="category-card" href="#shop" data-category-link="Shoes"><img src="https://images.unsplash.com/photo-1543163521-1bf539c55dd2?auto=format&fit=crop&w=800&q=85" alt="Fashion shoes"><div class="category-info"><span>Step into confidence</span><strong>Shoes</strong></div></a>
+          <a class="category-card" href="#shop" data-category-link="Accessories"><img src="https://images.unsplash.com/photo-1611652022419-a9419f74343d?auto=format&fit=crop&w=800&q=85" alt="Fashion accessories"><div class="category-info"><span>The finishing touch</span><strong>Accessories</strong></div></a>
+          <a class="category-card" href="#shop" data-category-link="Home Appliances"><img src="https://images.unsplash.com/photo-1556911220-e15b29be8c8f?auto=format&fit=crop&w=800&q=85" alt="Modern kitchen with home appliances"><div class="category-info"><span>Make home feel effortless</span><strong>Home Appliances</strong></div></a>
+        </div>
+      </div>
+    </section>
+
+    <section class="section shop-section" id="shop">
+      <div class="container">
+        <div class="section-head"><div class="eyebrow">The latest selection</div><h2>Pieces to fall in love with</h2><p>Explore fashion, accessories and useful home appliances. Select an item to discover more or add it to your bag.</p></div>
+        <div class="shop-toolbar">
+          <div class="filters" id="filters">
+            <button class="filter-btn active" data-filter="All">All pieces</button>
+            <button class="filter-btn" data-filter="Clothing">Clothing</button>
+            <button class="filter-btn" data-filter="Handbags">Handbags</button>
+            <button class="filter-btn" data-filter="Shoes">Shoes</button>
+            <button class="filter-btn" data-filter="Accessories">Accessories</button>
+            <button class="filter-btn" data-filter="Home Appliances">Home Appliances</button>
+          </div>
+          <label class="search-box"><input id="searchInput" type="search" placeholder="Search the collection..." aria-label="Search products"><span>⌕</span></label>
+        </div>
+        <div class="product-grid" id="productGrid"></div>
+      </div>
+    </section>
+
+    <section class="section" id="about">
+      <div class="container story">
+        <div class="story-image"><img src="https://images.unsplash.com/photo-1490481651871-ab68de25d43d?auto=format&fit=crop&w=1100&q=85" alt="Curated boutique fashion collection"></div>
+        <div class="story-copy">
+          <div class="eyebrow">A little about ÉLORA</div>
+          <h2>Style that feels<br><em>like you.</em></h2>
+          <p>At ÉLORA BOUTIQUE, we believe great style is more than what you wear — it is how you feel. We bring together beautiful clothing, statement handbags, stylish shoes, thoughtful accessories and practical home appliances to help you express your individuality.</p>
+          <p>From everyday fashion and special-occasion pieces to useful appliances for your home, our collection brings style and convenience together.</p>
+          <div class="story-signature">With love, ÉLORA</div>
+          <a class="btn" href="#shop">Discover our pieces <span>→</span></a>
+        </div>
+      </div>
+    </section>
+
+    <section class="benefits">
+      <div class="benefit-grid">
+        <div><div class="benefit-icon">✧</div><h3>Thoughtful selection</h3><p>Fashion finds chosen with care and style in mind.</p></div>
+        <div><div class="benefit-icon">♡</div><h3>Personal service</h3><p>We are happy to help you find your perfect piece.</p></div>
+        <div><div class="benefit-icon">◇</div><h3>Easy ordering</h3><p>Place your order directly with us on WhatsApp.</p></div>
+      </div>
+    </section>
+
+    <section class="section testimonials">
+      <div class="container">
+        <div class="section-head"><div class="eyebrow">Kind words</div><h2>Love from our community</h2><p>A few words about the ÉLORA experience.</p></div>
+        <div class="review-grid">
+          <article class="review"><div class="stars">★★★★★</div><blockquote>“Beautiful pieces and such a lovely shopping experience. I found exactly what I was looking for.”</blockquote><strong>Amara K.</strong><small>ÉLORA customer</small></article>
+          <article class="review"><div class="stars">★★★★★</div><blockquote>“The details, the style, the service — everything felt thoughtful. I will definitely shop here again.”</blockquote><strong>Abena D.</strong><small>ÉLORA customer</small></article>
+          <article class="review"><div class="stars">★★★★★</div><blockquote>“A lovely collection with pieces that make everyday outfits feel special. Highly recommended.”</blockquote><strong>Michelle A.</strong><small>ÉLORA customer</small></article>
+        </div>
+      </div>
+    </section>
+
+    <section class="newsletter">
+      <h2>A little note from ÉLORA</h2>
+      <p>Want to hear about new arrivals and style inspiration? Get in touch with us.</p>
+      <form class="newsletter-form" id="newsletterForm"><input type="email" id="newsletterEmail" placeholder="Your email address" aria-label="Your email address" required><button type="submit">I'm interested</button></form>
+    </section>
+  </main>
+
+  <footer class="footer" id="contact">
+    <div class="footer-grid">
+      <div><a class="brand" href="#home">ÉLORA<small>BOUTIQUE</small></a><p>Timeless fashion. Beautiful details. Effortless elegance. Discover pieces that make every day feel a little more special.</p></div>
+      <div><h4>Explore</h4><div class="footer-links"><a href="#home">Home</a><a href="#collections">Collections</a><a href="#shop">Shop all</a><a href="#about">Our story</a></div></div>
+      <div><h4>Customer care</h4><div class="footer-links"><a href="#contact">Contact us</a><a href="#shop">How to order</a><a href="#contact">Delivery information</a><a href="#contact">FAQs</a></div></div>
+      <div><h4>Get in touch</h4><div class="footer-links"><span>WhatsApp: Add boutique number</span><span>Email: Add boutique email</span><span>Location: Ghana</span><a href="#shop">Browse our collection</a></div></div>
+    </div>
+    <div class="footer-bottom"><span>© <span id="year"></span> ÉLORA BOUTIQUE. All rights reserved.</span><span>Website concept by <b>NovaWeb Studios</b></span></div>
+  </footer>
+
+  <a class="whatsapp-float" id="whatsappFloat" href="#" aria-label="Chat with ÉLORA on WhatsApp" title="Chat on WhatsApp">✆</a>
+
+  <div class="overlay" id="overlay"></div>
+  <aside class="cart-panel" id="cartPanel" aria-label="Shopping bag">
+    <div class="cart-head"><h2>Your shopping bag</h2><button class="close-btn" id="cartClose" aria-label="Close cart">×</button></div>
+    <div class="cart-items" id="cartItems"></div>
+    <div class="cart-foot"><div class="subtotal"><span>Subtotal</span><span id="cartSubtotal">GH₵0.00</span></div><button class="btn" id="checkoutBtn">Order via WhatsApp →</button><p class="cart-note">Your order will be sent to the boutique to confirm availability and delivery.</p></div>
+  </aside>
+
+  <div class="modal" id="productModal" role="dialog" aria-modal="true" aria-label="Product details">
+    <div class="modal-box"><button class="modal-close" id="modalClose" aria-label="Close details">×</button><img id="modalImage" src="" alt=""><div class="modal-content"><div class="eyebrow" id="modalCategory"></div><h2 id="modalName"></h2><p id="modalDescription"></p><span class="price" id="modalPrice"></span><button class="btn" id="modalAdd">Add to bag →</button></div></div>
+  </div>
+  <div class="toast" id="toast" role="status"></div>
+
+  <script>
+    // DEMO SETUP: Replace the WhatsApp number below with the boutique's number.
+    // Use Ghana country code 233, without the leading zero. Example: 233241234567.
+    const WHATSAPP_NUMBER = "233000000000";
+
+    const products = [
+      {id:1,name:"The Evening Muse Dress",category:"Clothing",price:280,tag:"Bestseller",description:"A graceful statement dress designed for special evenings and unforgettable moments. A beautiful sample product for this boutique demo.",image:"https://images.unsplash.com/photo-1566174053879-31528523f8ae?auto=format&fit=crop&w=900&q=85"},
+      {id:2,name:"The Everyday Edit",category:"Clothing",price:195,tag:"New arrival",description:"An easy-to-style wardrobe favourite with a polished, effortless feel. Pair it with your favourite accessories.",image:"https://images.unsplash.com/photo-1483985988355-763728e1935b?auto=format&fit=crop&w=900&q=85"},
+      {id:3,name:"The Soft Tailoring Set",category:"Clothing",price:350,tag:"ÉLORA pick",description:"A refined coordinated look for days when you want comfort and confidence in equal measure.",image:"https://images.unsplash.com/photo-1598554747436-c9293d6a588f?auto=format&fit=crop&w=900&q=85"},
+      {id:4,name:"The Classic Mini Bag",category:"Handbags",price:220,tag:"Bestseller",description:"A versatile handbag with a timeless silhouette, perfect for carrying your everyday essentials.",image:"https://images.unsplash.com/photo-1584917865442-de89df76afd3?auto=format&fit=crop&w=900&q=85"},
+      {id:5,name:"The City Tote",category:"Handbags",price:265,tag:"New arrival",description:"A roomy and stylish companion for busy days, work plans and weekend outings.",image:"https://images.unsplash.com/photo-159087.html?auto=format&fit=crop&w=900&q=85"},
+      {id:6,name:"The Golden Hour Heels",category:"Shoes",price:240,tag:"ÉLORA pick",description:"Elegant heels that bring a little extra polish to your favourite outfits.",image:"https://images.unsplash.com/photo-1543163521-1bf539c55dd2?auto=format&fit=crop&w=900&q=85"},
+      {id:7,name:"The Weekend Slides",category:"Shoes",price:125,tag:"Everyday",description:"A relaxed, easy-to-wear pair for casual days and effortless styling.",image:"https://images.unsplash.com/photo-1603487742131-4160ec999306?auto=format&fit=crop&w=900&q=85"},
+      {id:8,name:"The Signature Sunglasses",category:"Accessories",price:95,tag:"Trending",description:"A confident finishing touch for sunny days and standout looks.",image:"https://images.unsplash.com/photo-1511499767150-a48a237f0083?auto=format&fit=crop&w=900&q=85"},
+      {id:9,name:"The Golden Detail Set",category:"Accessories",price:110,tag:"Bestseller",description:"A delicate accessory set that adds a subtle touch of shine to any look.",image:"https://images.unsplash.com/photo-1611652022419-a9419f74343d?auto=format&fit=crop&w=900&q=85"},
+      {id:10,name:"The Modern Timepiece",category:"Accessories",price:185,tag:"ÉLORA pick",description:"A refined watch-inspired accessory to complete your everyday style.",image:"https://images.unsplash.com/photo-1523275335684-37898b6baf30?auto=format&fit=crop&w=900&q=85"},
+      {id:11,name:"The Statement Clutch",category:"Handbags",price:175,tag:"Occasion wear",description:"A sleek finishing piece for celebrations, evenings and special occasions.",image:"https://images.unsplash.com/photo-1566150905458-1bf1fc113f0d?auto=format&fit=crop&w=900&q=85"},
+      {id:12,name:"The Weekend Dress",category:"Clothing",price:230,tag:"New arrival",description:"A fresh, versatile look for brunch, get-togethers and days out.",image:"https://images.unsplash.com/photo-1515886657613-9f3515b0c78f?auto=format&fit=crop&w=900&q=85"}
+      ,
+      {id:13,name:"Frostline Double-Door Refrigerator",category:"Home Appliances",price:4850,tag:"Home essential",description:"A spacious double-door refrigerator concept for keeping groceries and family favourites organised. Sample demo price; confirm specifications and availability with the seller.",image:"https://images.unsplash.com/photo-1584568694244-14fbdf83bd30?auto=format&fit=crop&w=900&q=85"},
+      {id:14,name:"PureWash Front-Load Washing Machine",category:"Home Appliances",price:3950,tag:"Popular",description:"A modern front-load washing machine for convenient everyday laundry care. Sample demo listing; capacity and features should be confirmed.",image:"https://images.unsplash.com/photo-1626806787461-102c1bfaaea1?auto=format&fit=crop&w=900&q=85"},
+      {id:15,name:"ChefPro Microwave Oven",category:"Home Appliances",price:1250,tag:"Kitchen pick",description:"A compact microwave oven concept for reheating meals and everyday kitchen convenience. Sample demo price.",image:"https://images.unsplash.com/photo-1574269909862-7e1d70bb8078?auto=format&fit=crop&w=900&q=85"},
+      {id:16,name:"BlendMaster 2-in-1 Blender",category:"Home Appliances",price:650,tag:"Everyday essential",description:"A versatile blender concept for smoothies, sauces and food preparation. Confirm jar size and included accessories before purchase.",image:"https://images.unsplash.com/photo-1570222094114-d054a817e56b?auto=format&fit=crop&w=900&q=85"},
+      {id:17,name:"QuickBoil Electric Kettle",category:"Home Appliances",price:280,tag:"Best value",description:"An electric kettle concept for quickly preparing hot water at home or in the office. Sample demo listing.",image:"https://images.unsplash.com/photo-1594213114663-d94db9b171e2?auto=format&fit=crop&w=900&q=85"},
+      {id:18,name:"CrispWave Air Fryer",category:"Home Appliances",price:980,tag:"Trending",description:"An air fryer concept for convenient cooking with less added oil. Check capacity and power rating with the seller.",image:"https://images.unsplash.com/photo-1648131005727-6a4f3f0f8b42?auto=format&fit=crop&w=900&q=85"},
+      {id:19,name:"FamilySize Digital Rice Cooker",category:"Home Appliances",price:520,tag:"Kitchen favourite",description:"A digital rice cooker concept for preparing rice and other simple meals. Sample demo price; capacity may vary.",image:"https://images.unsplash.com/photo-1585515320310-259814833e62?auto=format&fit=crop&w=900&q=85"},
+      {id:20,name:"ToastMate 2-Slice Toaster",category:"Home Appliances",price:310,tag:"Kitchen pick",description:"A compact toaster concept for quick breakfast preparation. Confirm settings and finish with the seller.",image:"https://images.unsplash.com/photo-1585659722983-3a675dabf23d?auto=format&fit=crop&w=900&q=85"},
+      {id:21,name:"BreezeTower Standing Fan",category:"Home Appliances",price:720,tag:"Home comfort",description:"A standing fan concept for improved air circulation in living spaces. Sample demo listing; check height and speed settings.",image:"https://images.unsplash.com/photo-1581275235011-7c6a2f6b5d0b?auto=format&fit=crop&w=900&q=85"},
+      {id:22,name:"CoolBreeze Split Air Conditioner",category:"Home Appliances",price:6200,tag:"Premium",description:"A split air-conditioner concept for home cooling. Confirm BTU capacity, installation requirements and warranty before ordering.",image:"https://images.unsplash.com/photo-1631545806609-7e2f4c1c6c8b?auto=format&fit=crop&w=900&q=85"},
+      {id:23,name:"CleanSweep Vacuum Cleaner",category:"Home Appliances",price:1450,tag:"Cleaning essential",description:"A vacuum cleaner concept for everyday home cleaning. Check suction power, attachments and filter type with the seller.",image:"https://images.unsplash.com/photo-1558317374-067fb5f30001?auto=format&fit=crop&w=900&q=85"},
+      {id:24,name:"SmoothPress Steam Iron",category:"Home Appliances",price:390,tag:"Everyday essential",description:"A steam iron concept to help keep clothing neat and presentable. Sample demo price.",image:"https://images.unsplash.com/photo-1544441893-675973e31985?auto=format&fit=crop&w=900&q=85"},
+      {id:25,name:"AquaFresh Water Dispenser",category:"Home Appliances",price:1750,tag:"Home essential",description:"A water dispenser concept for convenient access to drinking water. Confirm hot-and-cold functions and bottle compatibility.",image:"https://images.unsplash.com/photo-1527960471264-932f39eb5846?auto=format&fit=crop&w=900&q=85"},
+      {id:26,name:"BaristaHome Coffee Maker",category:"Home Appliances",price:890,tag:"Coffee corner",description:"A coffee maker concept for preparing coffee at home. Confirm brewing style and included accessories.",image:"https://images.unsplash.com/photo-1495474472287-4d71bcdd2085?auto=format&fit=crop&w=900&q=85"},
+      {id:27,name:"SnackTime Sandwich Maker",category:"Home Appliances",price:340,tag:"Quick meals",description:"A sandwich maker concept for easy toasted snacks and quick meals. Sample demo listing.",image:"https://images.unsplash.com/photo-1528735602780-2552fd46c7af?auto=format&fit=crop&w=900&q=85"},
+      {id:28,name:"HomeChef Electric Hot Plate",category:"Home Appliances",price:460,tag:"Compact cooking",description:"A compact electric hot plate concept for simple cooking needs. Check wattage and safety features before purchase.",image:"https://images.unsplash.com/photo-1556911220-bff31c812dba?auto=format&fit=crop&w=900&q=85"},
+      {id:29,name:"ViewMax Smart Television",category:"Home Appliances",price:3850,tag:"Entertainment",description:"A smart television concept for streaming and home entertainment. Screen size, resolution and smart features are sample details to confirm.",image:"https://images.unsplash.com/photo-1593359677879-a4bb92f829d1?auto=format&fit=crop&w=900&q=85"},
+      {id:30,name:"SoundWave Home Theatre System",category:"Home Appliances",price:2150,tag:"Entertainment",description:"A home audio system concept for a more immersive movie and music experience. Confirm speaker configuration and connectivity.",image:"https://images.unsplash.com/photo-1545454675-3531b543be5d?auto=format&fit=crop&w=900&q=85"},
+      {id:31,name:"GlowLite LED Desk Lamp",category:"Home Appliances",price:220,tag:"Home detail",description:"A practical desk lamp concept for reading, studying and focused work. Sample demo price.",image:"https://images.unsplash.com/photo-1507473885765-e6ed057f782c?auto=format&fit=crop&w=900&q=85"},
+      {id:32,name:"SteamEase Garment Steamer",category:"Home Appliances",price:560,tag:"Care & laundry",description:"A garment steamer concept for refreshing clothes and easing out creases. Confirm water capacity and accessories.",image:"https://images.unsplash.com/photo-1520607162513-77705c0f0d4a?auto=format&fit=crop&w=900&q=85"}    ];
+
+    let activeCategory = "All";
+    let cart = [];
+    let selectedProduct = null;
+    const $ = id => document.getElementById(id);
+    const money = value => "GH₵" + Number(value).toFixed(2);
+
+    function renderProducts() {
+      const query = $("searchInput").value.trim().toLowerCase();
+      const shown = products.filter(p =>
+        (activeCategory === "All" || p.category === activeCategory) &&
+        (p.name.toLowerCase().includes(query) || p.category.toLowerCase().includes(query))
+      );
+      $("productGrid").innerHTML = shown.length ? shown.map(p => `
+        <article class="product-card">
+          <div class="product-image">
+            <img src="${p.image}" alt="${p.name}" loading="lazy" onerror="this.src='https://images.unsplash.com/photo-1556911220-e15b29be8c8f?auto=format&fit=crop&w=800&q=80'">
+            <span class="product-tag">${p.tag}</span>
+            <button class="quick-add" onclick="addToCart(${p.id})">＋ Add to bag</button>
+          </div>
+          <div class="product-meta">
+            <h3><a href="#" onclick="openProduct(${p.id});return false">${p.name}</a></h3>
+            <p>${p.category}</p><span class="price">${money(p.price)}</span>
+          </div>
+        </article>`).join("") : `<div class="empty-state">No pieces found. Try another search.</div>`;
+    }
+
+    function setCategory(category) {
+      activeCategory = category;
+      document.querySelectorAll(".filter-btn").forEach(btn => btn.classList.toggle("active", btn.dataset.filter === category));
+      renderProducts();
+    }
+    $("filters").addEventListener("click", e => {
+      const btn = e.target.closest("[data-filter]");
+      if (btn) setCategory(btn.dataset.filter);
+    });
+    document.querySelectorAll("[data-category-link]").forEach(link => link.addEventListener("click", () => setCategory(link.dataset.categoryLink)));
+    $("searchInput").addEventListener("input", renderProducts);
+
+    function addToCart(id) {
+      const product = products.find(p => p.id === id);
+      const found = cart.find(item => item.id === id);
+      if (found) found.qty++;
+      else cart.push({...product, qty:1});
+      renderCart(); showToast(product.name + " added to your bag");
+    }
+    function changeQty(id, amount) {
+      const item = cart.find(p => p.id === id);
+      if (!item) return;
+      item.qty += amount;
+      if (item.qty <= 0) cart = cart.filter(p => p.id !== id);
+      renderCart();
+    }
+    function removeItem(id) { cart = cart.filter(p => p.id !== id); renderCart(); }
+    function renderCart() {
+      const count = cart.reduce((sum,p) => sum + p.qty,0);
+      const total = cart.reduce((sum,p) => sum + p.price*p.qty,0);
+      $("cartCount").textContent = count;
+      $("cartSubtotal").textContent = money(total);
+      $("cartItems").innerHTML = cart.length ? cart.map(p => `
+        <div class="cart-item">
+          <img src="${p.image}" alt="${p.name}">
+          <div><h4>${p.name}</h4><p>${money(p.price)}</p><div class="qty"><button onclick="changeQty(${p.id},-1)" aria-label="Decrease quantity">−</button><span>${p.qty}</span><button onclick="changeQty(${p.id},1)" aria-label="Increase quantity">+</button></div></div>
+          <button class="remove" onclick="removeItem(${p.id})" aria-label="Remove ${p.name}">×</button>
+        </div>`).join("") : `<div class="cart-empty"><div style="font-size:34px;margin-bottom:12px">♧</div>Your bag is waiting for something lovely.<br><br><a href="#shop" onclick="closeCart()" style="color:#987744;text-decoration:underline">Explore the collection</a></div>`;
+    }
+    function openCart() { $("cartPanel").classList.add("open"); $("overlay").classList.add("show"); document.body.classList.add("no-scroll"); }
+    function closeCart() { $("cartPanel").classList.remove("open"); $("overlay").classList.remove("show"); document.body.classList.remove("no-scroll"); }
+    $("cartOpen").addEventListener("click",openCart);
+    $("cartClose").addEventListener("click",closeCart);
+    $("overlay").addEventListener("click",closeCart);
+
+    function openProduct(id) {
+      selectedProduct = products.find(p => p.id === id);
+      if (!selectedProduct) return;
+      $("modalImage").src = selectedProduct.image;
+      $("modalImage").alt = selectedProduct.name;
+      $("modalCategory").textContent = selectedProduct.category;
+      $("modalName").textContent = selectedProduct.name;
+      $("modalDescription").textContent = selectedProduct.description;
+      $("modalPrice").textContent = money(selectedProduct.price);
+      $("productModal").classList.add("show");
+      document.body.classList.add("no-scroll");
+    }
+    function closeModal() { $("productModal").classList.remove("show"); document.body.classList.remove("no-scroll"); }
+    $("modalClose").addEventListener("click",closeModal);
+    $("productModal").addEventListener("click",e => { if(e.target === $("productModal")) closeModal(); });
+    $("modalAdd").addEventListener("click",() => { if(selectedProduct) addToCart(selectedProduct.id); closeModal(); });
+
+    function whatsappLink(message) {
+      return "https://wa.me/" + WHATSAPP_NUMBER + "?text=" + encodeURIComponent(message);
+    }
+    function sendWhatsApp(message) {
+      if (WHATSAPP_NUMBER === "233000000000") {
+        showToast("Demo mode: add the boutique's WhatsApp number in the code first.");
+        return;
+      }
+      window.open(whatsappLink(message),"_blank","noopener");
+    }
+    $("checkoutBtn").addEventListener("click",() => {
+      if (!cart.length) { showToast("Your shopping bag is empty."); return; }
+      const lines = cart.map(p => `• ${p.name} × ${p.qty} — ${money(p.price*p.qty)}`).join("\n");
+      const total = cart.reduce((sum,p) => sum+p.price*p.qty,0);
+      const message = `Hello ÉLORA BOUTIQUE! I would like to place an order:\n\n${lines}\n\nEstimated total: ${money(total)}\n\nPlease confirm availability, delivery options and payment details.`;
+      sendWhatsApp(message);
+    });
+    $("whatsappFloat").addEventListener("click",e => {
+      e.preventDefault();
+      sendWhatsApp("Hello ÉLORA BOUTIQUE! I would like to make an enquiry about your collection.");
+    });
+
+    function showToast(message) {
+      $("toast").textContent = message;
+      $("toast").classList.add("show");
+      clearTimeout(showToast.timer);
+      showToast.timer = setTimeout(() => $("toast").classList.remove("show"),2800);
+    }
+    $("menuBtn").addEventListener("click",() => $("navLinks").classList.toggle("open"));
+    $("navLinks").querySelectorAll("a").forEach(a => a.addEventListener("click",() => $("navLinks").classList.remove("open")));
+    $("newsletterForm").addEventListener("submit",e => {
+      e.preventDefault();
+      const email = $("newsletterEmail").value.trim();
+      if (email) {
+        const message = `Hello ÉLORA BOUTIQUE! I would like to hear about new arrivals. My email is ${email}.`;
+        sendWhatsApp(message);
+        $("newsletterEmail").value = "";
+      }
+    });
+    $("year").textContent = new Date().getFullYear();
+    renderProducts();
+    renderCart();
+  </script>
+</body>
+</html>
